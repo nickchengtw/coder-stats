@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Progress } from '@/components/ui/progress'
@@ -12,9 +13,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import getUserStats from '@/api/statsCard'
 
-import { ref } from 'vue'
+const recentAcLimit = 3
 
+const props = defineProps({
+  username: String
+})
 
 const progressBars = ref([
   {name: 'Easy', progress: 85},
@@ -35,6 +40,12 @@ const recentProblems = ref([
   {name: 'Two Sum', status: 'Accept'},
   {name: 'Two Sum', status: 'Accept'},
 ])
+
+onMounted(async () => {
+  const data = await getUserStats(props.username, recentAcLimit)
+  console.log(data)
+})
+
 </script>
 
 <template>

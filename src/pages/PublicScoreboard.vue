@@ -16,7 +16,7 @@ import StatsCard from '@/components/StatsCard.vue'
       </p>
     </div>
     <Separator class="my-4"/>
-    <StatsCard></StatsCard>
-    <StatsCard></StatsCard>
+    <StatsCard username="user8397r"></StatsCard>
+    <StatsCard username="user8397r"></StatsCard>
   </div>
 </template>
