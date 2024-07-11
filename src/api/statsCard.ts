@@ -1,32 +1,32 @@
 import axios from "axios";
 
-interface QuestionCount {
+export interface QuestionCount {
   difficulty: string;
   count: number;
 }
 
-interface UserProfile {
+export interface UserProfile {
   userAvatar: string;
   realName: string;
 }
 
-interface SubmissionCount {
+export interface SubmissionCount {
   difficulty: string;
   count: number;
 }
 
-interface UserCalendar {
+export interface UserCalendar {
   streak: number;
   submissionCalendar: string;
 }
 
-interface RecentSubmission {
+export interface RecentSubmission {
   title: string;
   titleSlug: string;
   timestamp: string;
 }
 
-interface UserPublicProfileResponse {
+export interface UserPublicProfileResponse {
   data: {
     allQuestionsCount: QuestionCount[];
     matchedUser: {
@@ -78,7 +78,7 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-export default async function getUserStats(
+export async function getUserStats(
   username: string,
   limit: number
 ): Promise<UserPublicProfileResponse["data"]> {
